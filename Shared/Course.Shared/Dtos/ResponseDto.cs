@@ -32,7 +32,7 @@ namespace Course.Shared.Dtos
         {
             return new ResponseDto<T>
             {
-                Data=default(T),
+                Data = default(T),
                 StatusCode = statusCode,
                 IsSuccessFull = true
             };

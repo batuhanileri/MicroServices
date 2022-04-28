@@ -18,7 +18,7 @@ namespace Course.Services.Catalog.Models
         public string Picture { get; set; }
 
         [BsonRepresentation(BsonType.DateTime)]
-        public DateTime CreatedTiem { get; set; }
+        public DateTime CreatedTime { get; set; }
 
         public Feature Feature { get; set; }
 
