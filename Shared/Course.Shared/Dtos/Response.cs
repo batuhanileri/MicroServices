@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Course.Shared.Dtos
 {
-    public class ResponseDto<T>
+    public class Response<T>
     {
         public T Data { get; private set; }
 
@@ -18,9 +18,9 @@ namespace Course.Shared.Dtos
 
 
         //static metodlar class içerisinde tanımlanarak nesne oluşturmana yardımcı olur.
-        public static ResponseDto<T> Success(T data, int statusCode) // data ve status codu birlikte gösteriyoruz.
+        public static Response<T> Success(T data, int statusCode) // data ve status codu birlikte gösteriyoruz.
         {
-            return new ResponseDto<T>
+            return new Response<T>
             {
                 Data = data,
                 StatusCode = statusCode,
@@ -28,9 +28,9 @@ namespace Course.Shared.Dtos
             };
         }
 
-        public static ResponseDto<T> Success(int statusCode) // Başarılı olabilir ama data almayabilir sadece status codu gösteriyoruz.
+        public static Response<T> Success(int statusCode) // Başarılı olabilir ama data almayabilir sadece status codu gösteriyoruz.
         {
-            return new ResponseDto<T>
+            return new Response<T>
             {
                 Data = default(T),
                 StatusCode = statusCode,
@@ -38,9 +38,9 @@ namespace Course.Shared.Dtos
             };
         }
 
-        public static ResponseDto<T> Fail(List<string> errors,int statusCode) 
+        public static Response<T> Fail(List<string> errors,int statusCode) 
         {
-            return new ResponseDto<T>
+            return new Response<T>
             {
                 Errors=errors,
                 StatusCode = statusCode,
@@ -48,9 +48,9 @@ namespace Course.Shared.Dtos
             };
         }
 
-        public static ResponseDto<T> Fail(string error, int statusCode)
+        public static Response<T> Fail(string error, int statusCode)
         {
-            return new ResponseDto<T>
+            return new Response<T>
             {
                 Errors = new List<string> 
                 { 
