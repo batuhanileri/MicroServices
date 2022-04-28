@@ -2,6 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 
+
 namespace Course.Services.Catalog.Models
 {
     public class Course
