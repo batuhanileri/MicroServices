@@ -30,6 +30,7 @@ namespace Course.Services.Catalog
         {
 
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICourseService, CourseService>();
 
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
