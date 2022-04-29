@@ -13,7 +13,7 @@ namespace Course.Shared.ControllerBases
             return new ObjectResult(response)
             {
                 StatusCode = response.StatusCode
-            };
+            }; 
         }
     }
 }
