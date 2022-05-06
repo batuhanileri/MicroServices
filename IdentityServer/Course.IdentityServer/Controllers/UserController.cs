@@ -1,6 +1,7 @@
 ﻿using Course.IdentityServer.Models;
 using Course.IdentityServer.Models.Dtos;
 using Course.Shared.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,10 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace Course.IdentityServer.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize(LocalApi.PolicyName)]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -21,7 +24,7 @@ namespace Course.IdentityServer.Controllers
         {
             _userManager = userManager;
         }
-
+         
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpDto signUpDto)
         {
