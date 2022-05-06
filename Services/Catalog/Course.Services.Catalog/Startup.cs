@@ -35,6 +35,7 @@ namespace Course.Services.Catalog
             services.AddScoped<ICourseService, CourseService>();
 
             services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers(opt=>
             {
                 opt.Filters.Add(new AuthorizeFilter());
