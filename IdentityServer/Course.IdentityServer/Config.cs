@@ -18,6 +18,7 @@ namespace Course.IdentityServer
                        new ApiResource("photo_stock_catalog"){Scopes={"photo_stock_fullpermission"}},
                        new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
                    };
+
         public static IEnumerable<IdentityResource> IdentityResources =>
                    new IdentityResource[]
                    {
@@ -54,7 +55,7 @@ namespace Course.IdentityServer
                     AllowedScopes={"catalog_fullpermission", "photo_stock_fullpermission", IdentityServerConstants.LocalApi.ScopeName }        
                 },
 
-                 new Client
+                new Client
                 {
                     ClientName="Asp.Net Core Mvc",
                     ClientId="MvcClientForUser",
@@ -66,6 +67,7 @@ namespace Course.IdentityServer
                      IdentityServerConstants.StandardScopes.OpenId,
                      IdentityServerConstants.StandardScopes.Profile,
                      IdentityServerConstants.StandardScopes.OfflineAccess, //Refresh Token için 
+                     IdentityServerConstants.LocalApi.ScopeName,
                      "roles"
                      },
                     AccessTokenLifetime=1*60*60,
